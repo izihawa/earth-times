@@ -1,24 +1,11 @@
 import asyncio
 
 import aiohttp
-from bs4 import BeautifulSoup
 
 
 class MeduzaClient:
     def __init__(self, url: str):
         self.url = url
-
-    def process_text(self, text):
-        soup = BeautifulSoup(text, 'html.parser')
-        for element in soup.find_all("div", id="SharePicture"):
-            element.decompose()
-        for img in soup.find_all('img'):
-            img['src'] = self.url + img['src']
-        for element in soup.find_all("h3"):
-            element.name = "h6"
-        for element in soup.find_all("h4"):
-            element.name = "h6"
-        return str(soup)
 
     async def retrieve_data(self, params, last_item=None):
         async with aiohttp.ClientSession() as client:
@@ -37,7 +24,7 @@ class MeduzaClient:
                         document_body = await document_body.json()
                         if document_body['root']['document_type'] in ('episode', 'video'):
                             continue
-                        document_body = self.process_text(document_body['root']['content']['body'])
+                        document_body = document_body['root']['content']['body']
                         parsed_document = {
                             'url': document['url'],
                             'title': document['title'],

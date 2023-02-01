@@ -2,3 +2,14 @@ $enable-negative-margins: true;
 
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap-icons/font/bootstrap-icons.scss";
+
+.snippet blockquote, .snippet .Figure, .snippet .EmbedCode,
+.snippet .CardChapter-head, .snippet quote,
+.snippet div.Context, .snippet div.Related,
+.snippet img, .snippet #SharePicture {
+  display: none;
+}
+
+.snippet h3, h4 {
+  @extend h6;
+}

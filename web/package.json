@@ -21,7 +21,7 @@
     "dexie": "^3.2.2",
     "ipfs-core-types": "^0.13.0",
     "ipfs-http-client": "^59.0.0",
-    "summa-wasm": "^0.93.2",
+    "summa-wasm": "^0.93.16",
     "vite-plugin-top-level-await": "^1.2.2",
     "vite-plugin-wasm": "^3.1.1",
     "vue": "^3.2.45",
