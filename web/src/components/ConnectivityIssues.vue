@@ -5,13 +5,13 @@ div.font-monospace(v-if="is_localhost")
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { ipfs_url } from "@/options";
+import { utils } from "summa-wasm";
 
 export default defineComponent({
   name: "ConnectivityIssues",
   computed: {
     is_localhost() {
-      return ipfs_url.includes("localhost");
+      return utils.get_ipfs_url().includes("localhost");
     },
   },
 });
